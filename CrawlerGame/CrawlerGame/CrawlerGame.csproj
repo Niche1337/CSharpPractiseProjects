@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ABB3B6A1-9AD5-4E2A-84A8-FD6C5EC44CB9}</ProjectGuid>
+    <ProjectGuid>{5B53A013-685E-492D-AD64-EA34FDE535DB}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Practise</RootNamespace>
-    <AssemblyName>Practise</AssemblyName>
+    <RootNamespace>CrawlerGame</RootNamespace>
+    <AssemblyName>CrawlerGame</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,9 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="FitnessFrog.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="Invader.cs" />
+    <Compile Include="Map.cs" />
+    <Compile Include="Path.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tower.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
