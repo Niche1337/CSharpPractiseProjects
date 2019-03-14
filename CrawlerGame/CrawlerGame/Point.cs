@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace CrawlerGame
 {
-    class Map
+    class Point
     {
-        readonly int Width, Height;
+        public readonly int X, Y;
 
-        Map(int width, int height)
+        public Point(int x, int y)
         {
-            Width = width;
-            Height = height;
+            X = x;
+            Y = y;
         }
     }
 }
