@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Practise.FitnessFrog
+namespace Practise
 {
 
-    class Program
+    class FitnessFrog
     {
         static void Main()
         {
