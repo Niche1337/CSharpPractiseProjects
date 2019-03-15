@@ -15,5 +15,18 @@ namespace CrawlerGame
             X = x;
             Y = y;
         }
+
+        public int DistanceTo(int x, int y)
+        {
+            int xDiff = X - x;
+            int yDiff = Y - y;
+
+            return (int)Math.Sqrt((xDiff * xDiff) + (yDiff * yDiff));
+        }
+
+        public int DistanceTo(Point point)
+        {
+            return DistanceTo(point.X, point.Y);
+        }
     }
 }
