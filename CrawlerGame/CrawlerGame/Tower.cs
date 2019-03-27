@@ -27,10 +27,19 @@ namespace CrawlerGame
 
             //    index++;
             //}
-
+            /*
             for (int index = 0; index < invaders.Length; index++)
             {
                 Invader invader = invaders[index];
+            }
+            */
+            foreach (Invader invader in invaders)
+            {
+                if (invader.IsActive && _location.InRangeOf(invader.Location, 1))
+                {
+                    invader.DecreaseHealth(1);
+                    break;
+                }
             }
 
 
