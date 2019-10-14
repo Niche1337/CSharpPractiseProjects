@@ -32,7 +32,7 @@ namespace Practise
                         continue;
                     }
 
-                    checkMinutes(minutes);
+                    CheckMinutes(minutes);
 
                     runningTotal = runningTotal + minutes;
 
@@ -52,7 +52,7 @@ namespace Practise
             Console.WriteLine("Goodbye");
         }
 
-        private static void checkMinutes(double minutes)
+        private static void CheckMinutes(double minutes)
         {
             if (minutes <= 10)
             {

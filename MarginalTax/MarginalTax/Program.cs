@@ -20,19 +20,6 @@ namespace MarginalTax
         // > 150000 = 45%
 
 
-          // if (num > 10000 && num <= 30000) {
-          //  tax += Math.floor(num - 10000 * 0.1);
-          //}
-
-          //if (num > 30000 && num <= 100000) {
-          //  tax += Math.floor(num - 30000 * 0.25) + 2000;
-          //}
-
-          //if (num > 100000) {
-          //  tax += Math.floor(num - 100000 * 0.4) + 19500;
-          //}
-          //return tax;
-
 
         static string EndProg()
         {
