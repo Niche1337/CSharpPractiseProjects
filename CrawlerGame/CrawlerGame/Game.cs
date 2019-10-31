@@ -18,6 +18,7 @@ namespace CrawlerGame
             Console.WriteLine(x.DistanceTo(5, 5));
             */
 
+           
 
             try
             {
@@ -33,18 +34,28 @@ namespace CrawlerGame
                                 new MapLocation(7,2,map)
                                     }
                             );
-                Invader[] invaders =
+
+                MapLocation location = new MapLocation(0, 2, map);
+
+                //if (path.IsOnPath(location))
+                //{
+                //    Console.WriteLine(location + " is on path");
+                //    return;
+                //}
+
+                IInvader[] invaders =
                 {
-                    new Invader(path),
-                    new Invader(path),
-                    new Invader(path),
-                    new Invader(path)
+                    new ShieldedInvader(path),
+                    new FastInvader(path),
+                    new StrongInvader(path),
+                    new BasicInvader(path),
+                    new ResurrectingInvader(path)
                 };
 
                 Tower[] towers =
                 {
                     new Tower (new MapLocation(1, 3, map)),
-                    new Tower (new MapLocation(3, 3, map)),
+                    new SuperTower (new MapLocation(3, 3, map)),
                     new Tower (new MapLocation(5, 3, map))
                 };
 

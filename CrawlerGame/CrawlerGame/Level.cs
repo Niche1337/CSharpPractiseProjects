@@ -8,11 +8,11 @@ namespace CrawlerGame
 {
     class Level
     {
-        private readonly Invader[] _invaders;
+        private readonly IInvader[] _invaders;
 
         public Tower[] Towers { get; set; }
 
-        public Level(Invader[] invaders)
+        public Level(IInvader[] invaders)
         {
             _invaders = invaders;
         }
@@ -34,7 +34,7 @@ namespace CrawlerGame
 
                 // count and move the invaders that still active
                 reamainingInvaders = 0;
-                foreach (Invader invader in _invaders)
+                foreach (IInvader invader in _invaders)
                 {
                     if (invader.IsActive)
                     {

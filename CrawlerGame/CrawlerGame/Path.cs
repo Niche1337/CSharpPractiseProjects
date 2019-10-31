@@ -21,6 +21,19 @@ namespace CrawlerGame
         {
             return ( pathStep < _path.Length) ? _path[pathStep] : null; //Ternary If (Read up if you forgot what it means, note to self)
         }
+
+        public bool IsOnPath(MapLocation location)
+        {
+            foreach (var pathLocation in _path)
+            {
+                if(location.Equals(pathLocation))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
 /*

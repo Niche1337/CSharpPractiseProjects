@@ -12,7 +12,8 @@ namespace CrawlerGame
         {
             if (!map.OnMap(this))
             {
-                throw new OutofBoundsException(x + "," + y + " is outside the boundaries of the map.");
+                //throw new OutofBoundsException(x + "," + y + " is outside the boundaries of the map.");
+                throw new OutofBoundsException(this + " is outside the boundaries of the map.");
             }
         }
 
