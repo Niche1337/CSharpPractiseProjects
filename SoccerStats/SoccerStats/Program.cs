@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
+using System.Net;
 
 namespace SoccerStats
 {
@@ -19,11 +20,23 @@ namespace SoccerStats
             var fileContents = ReadSoccerResults(fileName);
             fileName = Path.Combine(directory.FullName, "players.json");
             var players = DeserializePlayers(fileName);
+            var topTenPlayers = GetTopTenPlayers(players);
 
             foreach (var player in players)
             {
-                Console.WriteLine(player.second_name);
+                Console.WriteLine(player.LastName);
             }
+
+            foreach (var player in topTenPlayers)
+            {
+                Console.WriteLine("Name: " + player.FirstName + " PPG: " + player.PointsPerGame);
+            }
+            fileName = Path.Combine(directory.FullName, "topTen.json");
+            SerializePlayersToFile(topTenPlayers, fileName);
+
+            Console.WriteLine(GetGoogleHomePage());
+
+
             //var fileContents = ReadFile(fileName);
             //string [] fileLines = fileContents.Split(new char[] {'\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
             //foreach(var line in fileLines)
@@ -63,7 +76,6 @@ namespace SoccerStats
             }
 
         }
-
 
         public static List<GameResult> ReadSoccerResults(string fileName)
         {
@@ -129,5 +141,48 @@ namespace SoccerStats
                 return players;
 
         }
+
+        public static List<Player> GetTopTenPlayers(List<Player> players)
+        {
+            var topTenPlayers = new List<Player>();
+            players.Sort(new PlayerComparer());
+            int counter = 0;
+            foreach (var player in players )
+            {
+                topTenPlayers.Add(player);
+                counter++;
+                if (counter == 10)
+                {
+                    break;
+                }
+            }
+            return topTenPlayers;
+        }
+
+        public static void SerializePlayersToFile(List<Player> players, string fileName)
+        {
+            
+            var serializer = new JsonSerializer();
+            using (var writer = new StreamWriter(fileName))
+            using (var jsonWriter = new JsonTextWriter(writer))
+            {
+                serializer.Serialize(jsonWriter, players);
+            }
+            
+        }
+
+        public static string GetGoogleHomePage()
+        {
+
+            var webClient = new WebClient();
+            byte[] googleHome = webClient.DownloadData("https://www.google.com");
+
+            using (var stream = new MemoryStream(googleHome))
+            using (var reader = new StreamReader(stream))
+            {
+                return reader.ReadToEnd();
+            }
+        }
+
     }
 }
